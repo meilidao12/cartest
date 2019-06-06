@@ -52,7 +52,5 @@ export default {
     margin: 0px;
     background-color: #545c64;
 }
-div{
-    display: inline;
-}
+
 </style>
