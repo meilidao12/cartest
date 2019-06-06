@@ -1,11 +1,9 @@
 <template>
-    <div id='home'>
-        <div>
+    <div class="home">
+        <div class="menu">
         <el-row class="tac">
         <el-col :span="3">
-            <h3>自定义颜色</h3>
             <el-menu default-active="2" class="el-menu-vertical-demo"  @open="handleOpen" @close="handleClose" @select="selected"  background-color="#545c64"  text-color="#fff"  active-text-color="#ffd04b">
-             
                 <el-submenu index="1">
                     <template slot="title">
                         <i class="el-icon-location"></i>
@@ -16,13 +14,12 @@
                         <el-menu-item index='1-2'>选项2</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu> 
-
             </el-menu>
         </el-col>
         </el-row>
         </div>
         <div>
-            dsa
+            <route-view></route-view>
         </div>
     </div>
 </template>
@@ -48,9 +45,14 @@ export default {
 </script>
 
 <style scoped>
-#home{
+.home{
     margin: 0px;
     background-color: #545c64;
 }
 
+.home div{
+    min-width: 200px;
+    float: left;
+    margin-right: 20px;
+}
 </style>
