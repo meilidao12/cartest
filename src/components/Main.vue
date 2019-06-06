@@ -25,15 +25,7 @@ export default {
 
     },
     methods:{
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      selected(index){
-          alert('被选中的选项为 '  + index)
-      }
+        
     }
 }
 </script>
