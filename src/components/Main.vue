@@ -1,26 +1,21 @@
 <template>
-    <div class="home">
-        <div class="menu">
-        <el-row class="tac">
-        <el-col :span="3">
-            <el-menu default-active="2" class="el-menu-vertical-demo"  @open="handleOpen" @close="handleClose" @select="selected"  background-color="#545c64"  text-color="#fff"  active-text-color="#ffd04b">
-                <el-submenu index="1">
-                    <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span>导航一</span>
-                    </template>
-                    <el-menu-item-group>
-                        <el-menu-item index="1-1">选项1</el-menu-item>
-                        <el-menu-item index='1-2'>选项2</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu> 
-            </el-menu>
-        </el-col>
-        </el-row>
-        </div>
-        <div>
-            <route-view></route-view>
-        </div>
+    <div>
+        <el-container>
+            <el-header height="60px">
+                nihao
+            </el-header>
+            <el-container>
+                <el-aside width="200px">
+                    <el-menu :default-active="$route.path" class="el-menu-vertical-demo" router>
+                        <el-menu-item index="Detail">详情页</el-menu-item>
+                        <el-menu-item index="Set">设置页</el-menu-item>
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <router-view></router-view>
+                </el-main>
+            </el-container>
+        </el-container>
     </div>
 </template>
 
@@ -39,20 +34,16 @@ export default {
       selected(index){
           alert('被选中的选项为 '  + index)
       }
-      
     }
 }
 </script>
 
 <style scoped>
-.home{
-    margin: 0px;
-    background-color: #545c64;
-}
-
-.home div{
-    min-width: 200px;
-    float: left;
-    margin-right: 20px;
+.el-header{
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+    font-size: 40px;
 }
 </style>
