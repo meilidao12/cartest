@@ -1,12 +1,16 @@
 <template>
     <div>
         <el-button @click="getData()">添加</el-button>
+        <div>{{msg}}</div>
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
+    
     data(){
         return{
+            msg:'',
             list:[]
         }
     },
@@ -15,14 +19,22 @@ export default {
             alert("数据添加");
         },
         getData(){
-            //请求数据
-            var api='http://api.map.baidu.com/telematics/v3/weather?location=%E5%98%89%E5%85%B4&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ"';
-            this.$http.get(api).then((response)=>{
-                console.log(response);
-                //注意this指向
-            },function(err){
-                console.log(err);
-            })
+            var api='http://127.0.0.1:8001';
+            // this.$http.get(api).then((response)=>{
+            //     console.log(response.data);
+            //     this.msg = response.data;
+            // },function(err){
+            //     console.log(err);
+            // })
+            axios.get(api)
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
         }
     },
     mounted(){
