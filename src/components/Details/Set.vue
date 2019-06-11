@@ -10,7 +10,7 @@ export default {
     
     data(){
         return{
-            msg:'',
+            msg:'132',
             list:[]
         }
     },
@@ -26,10 +26,12 @@ export default {
             // },function(err){
             //     console.log(err);
             // })
+            var self = this;
             axios.get(api)
                 .then(function (response) {
                     // handle success
                     console.log(response);
+                    self.msg = response.data;
                 })
                 .catch(function (error) {
                     // handle error
