@@ -14,19 +14,31 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data(){
         return{
-            username: '',
+            username:'',
             password:''
         }
     },
     methods:{
         Load:function(){
-            if(this.username == '1' && this.password == '1')
-            {
-                this.$router.push({name:'Main'})
-            }
+            var api='http://127.0.0.1:3004/';
+            var self = this;
+            axios.get(api)
+                .then(function (response) {
+                    console.log(response);
+                    self.msg = response.data;
+                    if(self.username == self.msg  && self.password == self.msg )
+                    {
+                        self.$router.push({name:'Main'})
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            
         }
     }        
 }
