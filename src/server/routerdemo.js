@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-
+var bodyparse = require('body-parser');
 var admin = require('./routers/admin');
 var login = require('./routers/login');
 
@@ -16,6 +16,8 @@ app.all('*',function (req, res, next) {
     }
   });
 
+app.use(bodyparse.json());
+app.use(bodyparse.urlencoded({extended:true}));
 app.use('/',login)
 app.use('/admin',admin);
 
