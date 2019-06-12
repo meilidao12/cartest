@@ -19,7 +19,8 @@ export default {
             alert("数据添加");
         },
         getData(){
-            var api='http://127.0.0.1:8001?aid=5&cid=5';
+            var api='http://127.0.0.1:8081/set?aid=12&sex=男';
+            // var api='http://127.0.0.1:8081/set?aid=123&cid=234';
             var self = this;
             axios.get(api)
                 .then(function (response) {
