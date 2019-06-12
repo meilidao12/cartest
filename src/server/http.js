@@ -9,7 +9,8 @@
 //1.引入http模块
 
 var http=require('http');
-
+var url=require('url');
+var tools= require('./tools');
 //2.用http模块创建服务
 
     /*
@@ -18,7 +19,15 @@ var http=require('http');
      * */
 
 http.createServer(function(req,res){
+    var result=url.parse(req.url,true);  //第一个参数是地址    第二个参数是true的话表示把get传值转换成对象
+    console.log('aid='+result.query.aid);  /*获取url的get传值*/
+    console.log('cid='+result.query.cid);
+    var a = result.query.aid;
+    var b = result.query.cid;
+    var qwe  = tools.add(Number(result.query.aid),Number(result.query.cid));
+    // var qwe = Number(a) + Number(b);
+    console.log('res=' + qwe.toString());
     res.setHeader("Access-Control-Allow-Origin", "*"); 
     res.writeHead(200,{"Content-Type":"text/html;charset='utf-8'"});
-    res.end('234'); 
+    res.end(qwe.toString()); 
 }).listen(8001);

@@ -19,22 +19,14 @@ export default {
             alert("数据添加");
         },
         getData(){
-            var api='http://127.0.0.1:8001';
-            // this.$http.get(api).then((response)=>{
-            //     console.log(response.data);
-            //     this.msg = response.data;
-            // },function(err){
-            //     console.log(err);
-            // })
+            var api='http://127.0.0.1:8001?aid=4&cid=5';
             var self = this;
             axios.get(api)
                 .then(function (response) {
-                    // handle success
                     console.log(response);
                     self.msg = response.data;
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(error);
                 })
         }
