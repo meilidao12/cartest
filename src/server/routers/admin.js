@@ -9,7 +9,9 @@ router.get('/',function(req,res){
 router.post('/user',function(req,res){
     console.log(req.body.name);
     console.log(req.body.age);
-    res.send('admin user1');
+    var ary=[{date:1,name:"b"},{date:2,name:"b"}];
+
+    res.send(ary);
 })
 
 module.exports = router;

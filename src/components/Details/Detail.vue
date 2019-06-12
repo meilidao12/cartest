@@ -40,6 +40,7 @@ export default {
             axios.post(api,obj)
                 .then(function(res) {
                 console.log(res.data);
+                self.tableData = res.data;
             })
                 .catch(function(error) {
                 console.log(error);
